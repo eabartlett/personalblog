@@ -1,0 +1,17 @@
+%h1 Welcome to the blog of Barkledad
+%h3#index_message=flash[:message] if flash[:message]
+%table#articles_table
+  %thead
+    %th#title_header= link_to "Article Title", articles_path(:sort => 'title')
+    %th#author_header= link_to "Author", articles_path(:sort => 'author')
+    %th#publish_date= link_to "Publish Date", articles_path(:sort => 'publish_date')
+  %tbody
+  -if @articles
+    -@articles.each do |article|
+      %tr
+        %td=article.title
+        %td=article.author ? article.author.username : "Unknown"
+        %td=article.created_at
+        %td=link_to "Read Article", article_path(:id => article.id)
+%div#new_article
+= link_to 'Submit new Article', new_article_path

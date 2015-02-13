@@ -1,0 +1,8 @@
+= form_tag articles_path do
+  = label :article, :title, "Title"
+  = text_field :article, 'title'
+
+  = label :article, :text, "Text"
+  = text_area :article, 'text'
+
+  = submit_tag "Save article"

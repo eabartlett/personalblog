@@ -1,0 +1,10 @@
+%body
+  %div#article_header
+    %h1#article_title=@article.title
+    %p#article_author=@article.author ? @article.author : "Unknown"
+  %div#article_text=@article.text
+  =link_to "Edit Article", edit_article_path(:id => @article.id)
+  =form_tag article_path(:id => @article.id), :method => :delete do
+    =submit_tag "Delete Article"
+
+
