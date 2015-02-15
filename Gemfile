@@ -20,4 +20,7 @@ end
 gem 'jquery-rails'
 gem 'haml'
 
+gem 'omniauth-facebook', :github => 'mkdynamic/omniauth-facebook'
+gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
+
 
