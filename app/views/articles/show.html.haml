@@ -1,4 +1,5 @@
 %body
+  =render :partial => "shared/header"
   %div#article_header
     %h1#article_title=@article.title
     %p#article_author=@article.author ? @article.author : "Unknown"

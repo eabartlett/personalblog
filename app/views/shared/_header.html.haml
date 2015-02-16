@@ -1,0 +1,7 @@
+%div#welcome_header
+  -if session[:user]
+    %h4="Welcome back, #{session[:user].name}"
+  -else
+    %h4 Sign in with
+    =link_to "Twitter", "/auth/twitter"
+    =link_to "Facebook", "/auth/facebook"

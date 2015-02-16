@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150213223112) do
+ActiveRecord::Schema.define(:version => 20150215231552) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -27,6 +27,20 @@ ActiveRecord::Schema.define(:version => 20150213223112) do
     t.string   "pw"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.text     "name"
+    t.boolean  "twitter_auth"
+    t.boolean  "facebook_auth"
+    t.integer  "twitter_id"
+    t.integer  "facebook_id"
+    t.boolean  "admin"
+    t.text     "email"
+    t.text     "nickname"
+    t.text     "image"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
 end
