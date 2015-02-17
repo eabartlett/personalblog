@@ -11,7 +11,7 @@
     -@articles.each do |article|
       %tr
         %td=article.title
-        %td=article.author ? article.author.username : "Unknown"
+        %td=article.user ? article.user.name : "Unknown"
         %td=article.created_at
         %td=link_to "Read Article", article_path(:id => article.id)
 %div#new_article

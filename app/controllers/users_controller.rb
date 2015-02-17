@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def auth
-    puts UsersHelper.methods
     @user = User.create_or_find(auth_hash)
     if @user
       session[:user] = @user
@@ -8,6 +7,12 @@ class UsersController < ApplicationController
     else
       flash[:message] = "Unable to authenticate user, please try again"
     end
+    redirect_to articles_path
+  end
+
+  def signout
+    session.delete(:user) if session[:user]
+    puts request.headers.keys
     redirect_to articles_path
   end
 

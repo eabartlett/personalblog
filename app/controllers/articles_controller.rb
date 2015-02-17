@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(params[:article])
+    @article = Article.new(params[:article].merge({:user_id => session[:user].id}))
     if @article.save
       params[:article] = @article
       flash[:message] = "Article '#{@article.title}' successfully created"
