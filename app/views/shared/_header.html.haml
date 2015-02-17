@@ -1,4 +1,5 @@
 %div#welcome_header
+  =link_to "Home", articles_path
   -if session[:user]
     %h4="Welcome back, #{session[:user].name}"
     =link_to "Sign out", sign_out_path

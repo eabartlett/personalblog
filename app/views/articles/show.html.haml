@@ -2,9 +2,10 @@
   =render :partial => "shared/header"
   %div#article_header
     %h1#article_title=@article.title
-    %p#article_author=@user ? @user.name : "Unknown"
+    %p#article_author= @article.user.name
   %div#article_text=@article.text
-  =link_to "Edit Article", edit_article_path(:id => @article.id) if session[:user].admin || session[:user].is_author
-  -if session[:user].admin
+  -if session[:user]
+    =link_to "Edit Article", edit_article_path(:id => @article.id) if session[:user].admin || session[:user].is_author
+  -if session[:user] and session[:user].admin
     =form_tag article_path(:id => @article.id), :method => :delete do
       =submit_tag "Delete Article"

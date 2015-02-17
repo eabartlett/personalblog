@@ -12,8 +12,7 @@ class UsersController < ApplicationController
 
   def signout
     session.delete(:user) if session[:user]
-    puts request.headers.keys
-    redirect_to articles_path
+    redirect_to request.referer
   end
 
   def auth_hash
